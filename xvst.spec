@@ -5,7 +5,7 @@
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
 Version:        2.5.2
-Release:        5.%{gitdate}git%{shortcommit}%{?dist}
+Release:        6.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
 URL:            https://github.com/xVST/xVideoServiceThief
 # wget https://github.com/xVST/xVideoServiceThief/archive/cbfafe49f7ba1c85d4dcf51be17b49b035210412/xvst-2.5.2-cbfafe4.tar.gz
@@ -104,6 +104,9 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Tue Mar 21 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 2.5.2-6.20140804gitcbfafe4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
+
 * Wed Jul 20 2016 Leigh Scott <leigh123linux@googlemail.com> - 2.5.2-5.20140804gitcbfafe4
 - fix bundled qtsingleapplication
 
