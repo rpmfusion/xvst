@@ -1,14 +1,13 @@
-%global commit  cbfafe49f7ba1c85d4dcf51be17b49b035210412
+%global commit  73d3f51fba4c9c0f44062b35939c0dfa7f596523
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global gitdate 20140804
+%global gitdate 20170307
 
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
-Version:        2.5.2
-Release:        6.%{gitdate}git%{shortcommit}%{?dist}
+Version:        2.6
+Release:        1.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
 URL:            https://github.com/xVST/xVideoServiceThief
-# wget https://github.com/xVST/xVideoServiceThief/archive/cbfafe49f7ba1c85d4dcf51be17b49b035210412/xvst-2.5.2-cbfafe4.tar.gz
 Source0:        https://github.com/xVST/xVideoServiceThief/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
 Source1:        %{name}.desktop
 
@@ -19,8 +18,6 @@ Patch3:         keezmovies.patch
 Patch4:         myvideo.patch
 Patch5:         sunporno.patch
 Patch6:         wat.tv.patch
-# You should remove the bundled qtsingleapplication
-Patch7:         fix_bundled_qtsingleapplication.patch
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel
@@ -53,7 +50,6 @@ rm -rf src/rtmpdump
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
-%patch7 -p1
 
 # Fix path names and end-of-line encoding.
 sed -i "s|getApplicationPath()\ +\ \"|\"/usr/share/%{name}|g" src/options.cpp
@@ -104,6 +100,10 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Sat Jun 24 2017 Martin Gansser <linux4martin@gmx.de> 2.6-1.20170307git73d3f51
+- Update to recent git version 2.6-1.20170307git73d3f51
+- Dropped patch7
+
 * Tue Mar 21 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 2.5.2-6.20140804gitcbfafe4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
 
