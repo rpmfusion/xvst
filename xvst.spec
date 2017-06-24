@@ -19,7 +19,7 @@ Patch4:         myvideo.patch
 Patch5:         sunporno.patch
 Patch6:         wat.tv.patch
 
-ExcludeArch:    ppc64
+ExcludeArch:    ppc64 ppc64le
 
 BuildRequires:  desktop-file-utils
 BuildRequires:  qt5-qtbase-devel
@@ -107,7 +107,7 @@ update-desktop-database &> /dev/null || :
 - Update to recent git version 2.6-1.20170307git73d3f51
 - Dropped patch7
 - Add BR qt5-qtwebengine-devel
-- Add ExcludeArch: ppc64
+- Add ExcludeArch: ppc64 ppc64le
 
 * Tue Mar 21 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 2.5.2-6.20140804gitcbfafe4
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_26_Mass_Rebuild
