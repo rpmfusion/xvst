@@ -24,6 +24,7 @@ BuildRequires:  qt5-qtbase-devel
 BuildRequires:  qt5-qtwebkit-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qttools-devel
+BuildRequires:  qt5-qtwebengine-devel
 BuildRequires:  librtmp-devel
 Requires:       ffmpeg
 
@@ -102,6 +103,7 @@ update-desktop-database &> /dev/null || :
 %changelog
 * Sat Jun 24 2017 Martin Gansser <linux4martin@gmx.de> 2.6-1.20170307git73d3f51
 - Update to recent git version 2.6-1.20170307git73d3f51
+- Add BR qt5-qtwebengine-devel
 - Dropped patch7
 
 * Tue Mar 21 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 2.5.2-6.20140804gitcbfafe4
