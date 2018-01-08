@@ -1,13 +1,15 @@
-%global commit  73d3f51fba4c9c0f44062b35939c0dfa7f596523
+# https://github.com/xVST/xVideoServiceThief/commit/14dee4551645f6e23000c497f5c17631de98a368
+%global commit  14dee4551645f6e23000c497f5c17631de98a368
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global gitdate 20170307
+%global gitdate 20171201
+%global rname   xVST
 
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
-Version:        2.6
-Release:        2.%{gitdate}git%{shortcommit}%{?dist}
+Version:        3.0
+Release:        1.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
-URL:            https://github.com/xVST/xVideoServiceThief
+URL:            http://www.xvideothief.com
 Source0:        https://github.com/xVST/xVideoServiceThief/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
 Source1:        %{name}.desktop
 
@@ -29,6 +31,7 @@ BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qtwebengine-devel
 BuildRequires:  librtmp-devel
 Requires:       ffmpeg
+Requires:       youtube-dl
 
 %description
 xVideoServiceThief (a.k.a xVST) is a tool for downloading your favourite
@@ -67,8 +70,9 @@ chmod 0644 resources/services/hardsextube/hardsextube.js
 lrelease-qt5 resources/translations/*.ts
 rm -f resources/translations/template_for_new_translations.qm
 
-%{qmake_qt5}
-make %{?_smp_mflags}
+%{qmake_qt5} \
+CONFIG+="release"
+%make_build
 
 %install
 install -d -m 0755 %{buildroot}%{_datadir}/%{name}/{plugins,languages}
@@ -103,6 +107,9 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Sun Jan 07 2018 Martin Gansser <linux4martin@gmx.de> 3.0-1.20171201git14dee45
+- Update to 3.0-1.20171201git14dee45
+
 * Thu Aug 31 2017 RPM Fusion Release Engineering <kwizart@rpmfusion.org> - 2.6-2.20170307git73d3f51
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_27_Mass_Rebuild
 
