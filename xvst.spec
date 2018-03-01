@@ -7,7 +7,7 @@
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
 Version:        3.0
-Release:        1.%{gitdate}git%{shortcommit}%{?dist}
+Release:        2.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
 URL:            http://www.xvideothief.com
 Source0:        https://github.com/xVST/xVideoServiceThief/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
@@ -107,6 +107,9 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Thu Mar 01 2018 RPM Fusion Release Engineering <leigh123linux@googlemail.com> - 3.0-2.20171201git14dee45
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
+
 * Sun Jan 07 2018 Martin Gansser <linux4martin@gmx.de> 3.0-1.20171201git14dee45
 - Update to 3.0-1.20171201git14dee45
 
