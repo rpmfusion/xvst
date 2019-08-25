@@ -1,17 +1,18 @@
-# https://github.com/xVST/xVideoServiceThief/commit/14dee4551645f6e23000c497f5c17631de98a368
-%global commit  14dee4551645f6e23000c497f5c17631de98a368
+# https://github.com/xVST/xVideoServiceThief/commit/3ae2797b086469d73d7eea22992c9ade017a50c8
+%global commit  3ae2797b086469d73d7eea22992c9ade017a50c8
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global gitdate 20171201
+%global gitdate 20180822
 %global rname   xVST
 
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
 Version:        3.0
-Release:        6.%{gitdate}git%{shortcommit}%{?dist}
+Release:        7.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
-URL:            http://www.xvideothief.com
+URL:            https://www.xvideothief.com
 Source0:        https://github.com/xVST/xVideoServiceThief/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
 Source1:        %{name}.desktop
+Source2:        InformationLogo.png
 
 Patch0:         beeg.patch
 Patch1:         chilloutzone.patch
@@ -20,6 +21,7 @@ Patch3:         keezmovies.patch
 Patch4:         myvideo.patch
 Patch5:         sunporno.patch
 Patch6:         wat.tv.patch
+Patch7:         xVideoServiceThief.patch
 
 ExcludeArch:    ppc64 ppc64le
 
@@ -56,6 +58,7 @@ rm -rf src/rtmpdump
 %patch4 -p1
 %patch5 -p1
 %patch6 -p1
+%patch7 -p1
 
 # Fix path names and end-of-line encoding.
 sed -i "s|getApplicationPath()\ +\ \"|\"/usr/share/%{name}|g" src/options.cpp
@@ -84,7 +87,7 @@ install -m 0644 resources/translations/definitions/*.language \
          %{buildroot}%{_datadir}/%{name}/languages
 install -Dm755 bin/%{name} %{buildroot}%{_bindir}/%{name}
 install -Dm644 %{SOURCE1} %{buildroot}%{_datadir}/applications/%{name}.desktop
-install -Dm644 resources/images/InformationLogo.png %{buildroot}%{_datadir}/pixmaps/%{name}.png
+install -Dm644 %{SOURCE2} %{buildroot}%{_datadir}/pixmaps/%{name}.png
 
 %check
 desktop-file-validate %{buildroot}%{_datadir}/applications/%{name}.desktop
@@ -107,6 +110,9 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Sun Aug 25 2019 Martin Gansser <linux4martin@gmx.de> 3.0-7.20180822git3ae2797
+- Update to recent git version 3.0-7.20180822git3ae2797
+
 * Fri Aug 09 2019 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3.0-6.20171201git14dee45
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_31_Mass_Rebuild
 

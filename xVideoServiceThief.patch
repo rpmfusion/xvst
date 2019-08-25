@@ -1,0 +1,24 @@
+--- xVideoServiceThief-3ae2797b086469d73d7eea22992c9ade017a50c8/src/forms/dragdropimpl.cpp.orig	2018-08-22 03:00:15.000000000 +0200
++++ xVideoServiceThief-3ae2797b086469d73d7eea22992c9ade017a50c8/src/forms/dragdropimpl.cpp	2019-05-31 13:04:49.697051634 +0200
+@@ -37,14 +37,14 @@
+ {
+ 	setupUi(this);
+ 	// create drag and drop image
+-    //imgDragDrop = new QLabelClickeable(this);
+-    //imgDragDrop->setObjectName(QString::fromUtf8("imgDragDrop"));
+-    //imgDragDrop->setGeometry(QRect(0, 0, 120, 80));
+-    //imgDragDrop->setAcceptDrops(true);
+-    //imgDragDrop->setPixmap(QPixmap(":/header/images/DragDropWindow.svg"));
+-    //imgDragDrop->setAlignment(Qt::AlignCenter);
++    imgDragDrop = new QLabelClickeable(this);
++    imgDragDrop->setObjectName(QString::fromUtf8("imgDragDrop"));
++    imgDragDrop->setGeometry(QRect(0, 0, 120, 80));
++    imgDragDrop->setAcceptDrops(true);
++    imgDragDrop->setPixmap(QPixmap(":/header/images/DragDropWindow.svg"));
++    imgDragDrop->setAlignment(Qt::AlignCenter);
+ 	// connect doubleClick signal
+-    connect(btnDragDrop, SIGNAL(triggered(QAction*)), this, SLOT(displayMainWindowClicked())); // on double click, display main window
++    connect(imgDragDrop, SIGNAL(triggered(QAction*)), this, SLOT(displayMainWindowClicked())); // on double click, display main window
+ 	// save the parent window
+ 	this->parent = parent;
+ 	this->programOptions = programOptions;
