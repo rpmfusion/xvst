@@ -1,13 +1,13 @@
-# https://github.com/xVST/xVideoServiceThief/commit/3ae2797b086469d73d7eea22992c9ade017a50c8
-%global commit  3ae2797b086469d73d7eea22992c9ade017a50c8
+# https://github.com/xVST/xVideoServiceThief/commit/a6c1626686aa176deabc018996454bd3a1d5441e
+%global commit  a6c1626686aa176deabc018996454bd3a1d5441e
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
-%global gitdate 20180822
+%global gitdate 20190912
 %global rname   xVST
 
 Summary:        Downloading your favourite video clips from a lot of websites
 Name:           xvst
 Version:        3.0
-Release:        9.%{gitdate}git%{shortcommit}%{?dist}
+Release:        10.%{gitdate}git%{shortcommit}%{?dist}
 License:        GPLv3+
 URL:            https://www.xvideothief.com
 Source0:        https://github.com/xVST/xVideoServiceThief/archive/%{commit}/%{name}-%{version}-%{shortcommit}.tar.gz
@@ -110,6 +110,9 @@ update-desktop-database &> /dev/null || :
 %{_datadir}/%{name}/languages/*qm
 
 %changelog
+* Thu Sep 24 2020 Martin Gansser <linux4martin@gmx.de> 3.0-10.20190912gita6c1626
+- Update to recent git version 3.0-10.20190912gita6c1626
+
 * Wed Aug 19 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3.0-9.20180822git3ae2797
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
 
