@@ -31,6 +31,7 @@ BuildRequires:  qt5-qtwebkit-devel
 BuildRequires:  qt5-qtscript-devel
 BuildRequires:  qt5-qttools-devel
 BuildRequires:  qt5-qtwebengine-devel
+BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  librtmp-devel
 Requires:       ffmpeg
 Requires:       youtube-dl
@@ -112,6 +113,7 @@ update-desktop-database &> /dev/null || :
 %changelog
 * Thu Sep 24 2020 Martin Gansser <linux4martin@gmx.de> 3.0-10.20190912gita6c1626
 - Update to recent git version 3.0-10.20190912gita6c1626
+- Add BR pkgconfig(Qt5Svg)
 
 * Wed Aug 19 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 3.0-9.20180822git3ae2797
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_33_Mass_Rebuild
